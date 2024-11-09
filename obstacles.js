@@ -5,34 +5,35 @@ class Obstacle {
     this.oY = oY;
     this.oW = oW;
     this.oH = oH;
-    this.color = color
-    this.speed = 2;
+    this.color = color;
+    this.speed; //como colocar a condicional para atualizar com scoreSpeed()
   }
 
-  display() {
+  display(score) {
       fill(this.color);
       rect(this.oX, this.oY, this.oW, this.oH);
+
+      this.speed = scoreSpeed(score);
       
       this.oX -= this.speed;
       if (this.oX + this.oW < 0) {
         this.oX = this.oXInicial;
-      }
-      
+      } 
+    }
   }
-}
 
-
-//if(score > 120){
-  //this.speed = 4}
-
-//if(score > 180){
-//this.speed = 6}
-
-//if(score > 240){
-//this.speed = 8}
-
-//if(score > 300){
-//this.speed = 10}
-
-//if(score > 400){
-  //console.log("ENHORABUENA")}
+  function scoreSpeed(score){
+      if(score <= 10){
+        return this.speed = 2
+      } else if (score > 10 && score <= 20){
+        return this.speed = 5
+      } else if(score > 20 && score <= 30){
+        return this.speed = 7
+      } else if(score > 30 && score <= 40){
+        return this.speed = 9
+      } else {
+        alert("ENHORABUENA, has ganado el juego! ¿Te gustaria jugar de nuevo?")
+        return reiniciar(); 
+      }
+    }
+    

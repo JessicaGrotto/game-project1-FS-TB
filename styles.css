@@ -13,19 +13,3 @@ body{
 canvas {
     display: block;
   }
-
-#botton-reinicio:hover {
-    background-color: #9c911a;
-}
-
-#botton-reinicio{
-    position: absolute;
-    top: 10px;
-    left: 140px;
-    background-color: #3a8002;
-    color: white;
-    border: none;
-    padding: 8px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}

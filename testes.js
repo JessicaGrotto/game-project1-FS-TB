@@ -1,24 +1,23 @@
 
 /*
-    update() {
-      this.x -= this.speed;
-    }
+
+FALTA:
+ . editar o salto do player
+ . editar os obstaculos para sairem de forma aleatoria
+ . configurar as colisoes
+ . editar o alert
+ . editar os quadrados para personagens
   
-    offscreen() {
-      return this.x < -this.width;
-    }
-  
+
+
     hits(player) {
       return (
         player.playerX + player.playerW > this.x &&
-        dino.x < this.x + this.width &&
-        dino.y + dino.height > this.y
+        player.x < this.x + this.width &&
+        player.y + player.h > this.y
       );
     }
-  }*/
-
-
-/*    
+  }   
   
     // Verificar colisão
     if (obstacles[i].hits(player)) {
@@ -27,11 +26,4 @@
       textAlign(CENTER, CENTER);
       text('Game Over', width / 2, height / 2);
     }
-
-  
-  // Exibir a pontuação
-  fill(0);
-  textSize(24);
-  textAlign(LEFT, TOP);
-  text('Pontuação: ' + score, 10, 10);
-}*/
+*/

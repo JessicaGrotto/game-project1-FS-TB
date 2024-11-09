@@ -1,4 +1,3 @@
-
 class Player {
     constructor(pX, pY, pH, pW) {
       this.pInicialY = 330;
@@ -7,8 +6,8 @@ class Player {
       this.pW = pW;
       this.pH = pH;
       this.velocity = 0;
-      this.gravity = 0.5;
-      this.impulso = -15;
+      this.gravity = 0.3;
+      this.impulso = -9;
     }
   
     display() {
@@ -16,21 +15,19 @@ class Player {
       rect(this.pX, this.pY, this.pW, this.pH);
     }
   
-    //update() {
-    //  this.pY += this.velocity;
-    //  this.velocity += this.gravity;
-  
-      // Impedir que o dinossauro saia da tela
-    //  if (this.pY > pH - 40) {
-    //    this.pY = pH - 40;
-    //    this.velocity = 0;
-    //  }
-    //}
-  
     jump() {
-      if (this.pY === pInicialY) {
-        this.velocity = this.lift;
-        squareY -= 40
+      if (this.pY === this.pInicialY) {
+        this.velocity = this.impulso;
+        
       }
     }
-  }
+    update() {
+        this.pY += this.velocity;
+        this.velocity += this.gravity; 
+    
+        if (this.pY > this.pInicialY) {
+          this.pY = this.pInicialY;
+          this.velocity = 0;
+        }
+    } 
+}

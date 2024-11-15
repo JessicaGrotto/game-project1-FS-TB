@@ -6,7 +6,7 @@ class Player {
       this.pW = pW;
       this.pH = pH;
       this.velocity = 0;
-      this.gravity = 0.3;
+      this.gravity = 0.35;
       this.impulso = -9;
     }
   

@@ -2,12 +2,21 @@ let score = 0;
 let interval;
 let juegoIniciado = false;
 let obstaculos = [];
+let imgPlayer;
+let imgObstacle1; 
+let imgObstacle2;
 
+function preload() {
+  img = loadImage("./assets/background-zombie.jpg");
+  imgPlayer = loadImage("./assets/playerImg.png");
+  imgObstacle1 = loadImage("./assets/obstacle1.png");
+  imgObstacle2 = loadImage("./assets/obstacle2.png");
+}
 
 function elegirObsAleatorio() {
   return random([
-    new Obstacle(800, 350, 30, 30, "yellow"),
-    new Obstacle(800, 280, 30, 30, "green")
+    new Obstacle(800, 330, 50, 50, imgObstacle1), //zombie
+    new Obstacle(800, 270, 50, 50, imgObstacle2) //murcielago
   ]);
 }
 
@@ -15,7 +24,7 @@ function iniciar() {
   interval = setInterval(() => {
     score += 1;
   }, 1000);
-  player = new Player(20, 330, 50, 50);
+  player = new Player(imgPlayer, 20, 330, 50, 50);
   obstaculos = [elegirObsAleatorio()];
   juegoIniciado = true;
 }
@@ -26,14 +35,11 @@ function reiniciar() {
   interval = setInterval(() => {
     score += 1;
   }, 1000);
-  player = new Player(20, 330, 50, 50);
+  player = new Player(imgPlayer, 20, 330, 50, 50);
   obstaculos = [elegirObsAleatorio()];
   juegoIniciado = true;
 }
 
-function preload() {
-  img = loadImage("./assets/background-zombie.jpg");
-}
 
 function setup() {
   createCanvas(800, 400);
@@ -63,7 +69,7 @@ function setup() {
     reiniciar();
   });
 
-  player = new Player(20, 330, 50, 50);
+  player = new Player(imgPlayer, 20, 330, 50, 50);
 }
 
 function draw() {
@@ -96,7 +102,6 @@ function draw() {
     if (obstaculos.length > 0 && obstaculos[obstaculos.length - 1].oX < width * 0.4) {
       obstaculos.push(elegirObsAleatorio());
     }
-
     checkColision();
   }
 }

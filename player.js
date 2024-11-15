@@ -1,18 +1,18 @@
 class Player {
-    constructor(pX, pY, pH, pW) {
+    constructor(image, pX, pY, pH, pW) {
       this.pInicialY = 330;
       this.pX = pX;
       this.pY = pY
       this.pW = pW;
       this.pH = pH;
+      this.image = image
       this.velocity = 0;
       this.gravity = 0.35;
       this.impulso = -9;
     }
   
     display() {
-      fill(255);
-      rect(this.pX, this.pY, this.pW, this.pH);
+      image(this.image, this.pX, this.pY, this.pW, this.pH);
     }
   
     jump() {

@@ -1,17 +1,16 @@
 class Obstacle {
-  constructor(oX, oY, oW, oH, color) {
+  constructor(oX, oY, oW, oH, image) {
     this.oX = oX;
     this.oXInicial = 800;
     this.oY = oY;
     this.oW = oW;
     this.oH = oH;
-    this.color = color;
+    this.image = image;
     this.speed;
   }
 
   display(score) {
-    fill(this.color);
-    rect(this.oX, this.oY, this.oW, this.oH);
+    image(this.image, this.oX, this.oY, this.oW, this.oH);
   }
   update(){
     this.speed = scoreSpeed(score);
@@ -22,7 +21,6 @@ class Obstacle {
     return this.oX + this.oW < 0;
   }
 }
-
 
 function scoreSpeed(score){
     if(score <= 10){
